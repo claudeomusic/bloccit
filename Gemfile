@@ -13,6 +13,8 @@ group :development do
   gem 'sqlite3'
 end
 
+gem 'faker'
+
 # adding twitter bootstrap
 gem 'bootstrap-sass', '~> 3.1.1'
 
