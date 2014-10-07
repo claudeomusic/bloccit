@@ -17,6 +17,8 @@ gem 'devise'
 
 gem 'faker'
 
+gem 'figaro'
+
 # adding twitter bootstrap
 gem 'bootstrap-sass', '~> 3.1.1'
 
