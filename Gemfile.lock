@@ -1,3 +1,15 @@
+GIT
+  remote: git://github.com/plataformatec/devise.git
+  revision: f246f62b106e14e0e123d823f5ad5496d8641c83
+  specs:
+    devise (3.4.0)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      responders
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -37,13 +49,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
-    devise (3.4.0)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 3.2.6, < 5)
-      responders
-      thread_safe (~> 0.1)
-      warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.2.1)
     faker (1.4.3)
@@ -129,7 +134,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass (~> 3.1.1)
   coffee-rails (~> 4.0.0)
-  devise
+  devise!
   faker
   figaro
   jbuilder (~> 1.2)

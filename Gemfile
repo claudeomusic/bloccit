@@ -13,7 +13,7 @@ group :development do
   gem 'sqlite3'
 end
 
-gem 'devise'
+gem 'devise', git: 'git://github.com/plataformatec/devise.git'
 
 gem 'faker'
 
