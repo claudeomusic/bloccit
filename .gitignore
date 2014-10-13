@@ -20,3 +20,6 @@
 
 # Secret Token
 # /config/initializers/secret_token.rb
+
+# Carrierwave images
+public/uploads
