@@ -39,7 +39,14 @@ class Post < ActiveRecord::Base
       update_attribute(:rank, new_rank)
   end
 
-    def create_vote
+  def save_with_intial_vote
+    ActiveRecord::Base.transaction do
+      @post.save
+      create_vote
+    end
+  end
+
+  def create_vote
     user.votes.create(value: 1, post: self)
   end
 
@@ -51,7 +58,6 @@ class Post < ActiveRecord::Base
     redcarpet = Redcarpet::Markdown.new(renderer,extensions)
     (redcarpet.render text).html_safe
   end
-
 
 
 
