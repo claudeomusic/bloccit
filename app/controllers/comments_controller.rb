@@ -1,10 +1,11 @@
 class CommentsController < ApplicationController
+before_action :authenticate_user!
 
   def create
       @post = Post.find(params[:post_id])
       @topic = @post.topic
       @comments = @post.comments
-      @comment = current_user.comments.build(params.require(:comment).permit!)
+      @comment = current_user.comments.build(comment_params)
       @comment.post = @post
 
       authorize @comment
