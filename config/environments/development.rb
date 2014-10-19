@@ -36,4 +36,5 @@ Bloccit::Application.configure do
 
   # Silent ERrors
   config.action_mailer.raise_delivery_errors = true
+  config.raise_delivery_errors = true
 end
