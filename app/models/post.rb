@@ -20,6 +20,7 @@ class Post < ActiveRecord::Base
   end
 
   default_scope {order('rank DESC')}
+  scope :visible_to, -> (user) { user ? all : joins(:topic).where('topics.public' => true)}
 
   validates :title, length: {minimum: 5}, presence: true
   validates :body, length: {minimum: 20}, presence: true
@@ -40,10 +41,11 @@ class Post < ActiveRecord::Base
       update_attribute(:rank, new_rank)
   end
 
-  def save_with_intial_vote
+  def save_with_initial_vote
     ActiveRecord::Base.transaction do
-      @post.save
-      create_vote
+      saved = self.save
+      self.create_vote
+      saved
     end
   end
 

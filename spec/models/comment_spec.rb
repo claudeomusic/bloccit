@@ -37,7 +37,7 @@ describe Comment do
       before { @user.update_attribute(:email_favorites, false)}
 
       it "does not send emails, even to users who have favorited" do
-        @user.favorites.where(post: @post).create
+        @user.favorites.where(post: @post).create!
 
         expect(FavoriteMailer )
           .not_to receive(:new_comment)
