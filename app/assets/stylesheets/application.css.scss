@@ -1,11 +1,22 @@
 @import "bootstrap";
 
+* {
+}
+
 .user_info {
   margin-top: 9px;
 }
 
 .nav {
   margin-top: 5px;
+  background-color: #b0c4de;
+  padding-right: 10px;
+  padding-top: 10px;
+  border-radius: 2px;
+}
+
+.nav > li > a:focus {
+background-color: #00CCFF;
 }
 
 .vote-arrows{
