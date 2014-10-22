@@ -35,7 +35,7 @@
 </div>
   <hr/>
   <h2><%= @comments.count %> Comments </h2>
-  <%= render @comments %>
+  <%= render partial: 'comments/comment', collection: @comments %>
     <hr/>
 
     <% if current_user != nil %>
