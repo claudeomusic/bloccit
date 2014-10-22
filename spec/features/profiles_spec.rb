@@ -2,17 +2,13 @@ require 'rails_helper'
 
 describe "Visiting profiles" do 
 
-  include TestFactories
   include Warden::Test::Helpers
   Warden.test_mode!
 
   before do
-    @user = FactoryGirl.create(:user)
-    @user.save
-    @post = FactoryGirl.create(:post, user: @user)
-    @comment_without_email = FactoryGirl.create(:comment, user: @user, post: @post)
-    allow(@comment_without_email).to receive(:send_favorite_emails)
-    @comment_without_email.save
+    @user = create(:user)
+    @post = create(:post, user: @user)
+    @comment = create(:comment, user: @user, post: @post)
   end
 
   describe "not signed in" do
@@ -23,7 +19,7 @@ describe "Visiting profiles" do
 
       expect( page ).to have_content(@user.name)
       expect( page ).to have_content(@post.title)
-      expect( page ).to have_content(@comment_without_email.body)
+      expect( page ).to have_content(@comment.body)
     end
   end
 
@@ -41,7 +37,7 @@ describe "Visiting profiles" do
 
       expect( page ).to have_content(@user.name)
       expect( page ).to have_content(@post.title)
-      expect( page ).to have_content(@comment_without_email.body)
+      expect( page ).to have_content(@comment.body)
     end
   end
   
