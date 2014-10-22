@@ -5,5 +5,13 @@
       password 'helloworld'
       password_confirmation 'helloworld'
       confirmed_at Time.now
+
+
+      after(:build) do |user|
+        
+        post=create(:post,user: user)
+        comment=create(:comment,user: user,post: post)
+        #binding.pry
+      end
     end
   end

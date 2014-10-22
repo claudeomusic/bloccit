@@ -60,6 +60,7 @@ group :test do
   gem 'warden', '~> 1.2.3'
   gem 'database_cleaner'
   gem 'factory_girl_rails', '~> 4.0'
+  gem 'pry-rails'
 end
 
 # Use ActiveModel has_secure_password
