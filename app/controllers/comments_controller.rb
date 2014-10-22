@@ -18,10 +18,6 @@ before_action :authenticate_user!
         flash[:error] = "There was an error saving the comment. Please try again."
         render 'posts/show'
       end
-
-      respond_with(@comment) do |format|
-        format.html { redirect_to [@post.topic,@post]}
-      end
   end
 
   def destroy
@@ -34,6 +30,10 @@ before_action :authenticate_user!
       flash[:notice] = "Comment was removed."
     else
       flash[:error] = "Comment couldn't be deleted. Try again."
+    end
+
+    respond_with(@comment) do |format|
+        format.html { redirect_to [@post.topic,@post]}
     end
   end
 
