@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  respond_to :html, :js
 before_action :authenticate_user!
 
   def create
@@ -17,6 +18,10 @@ before_action :authenticate_user!
         flash[:error] = "There was an error saving the comment. Please try again."
         render 'posts/show'
       end
+
+      respond_with(@comment) do |format|
+        format.html { redirect_to [@post.topic,@post]}
+      end
   end
 
   def destroy
@@ -27,10 +32,8 @@ before_action :authenticate_user!
     authorize @comment
     if @comment.destroy
       flash[:notice] = "Comment was removed."
-      redirect_to [@topic, @post]
     else
       flash[:error] = "Comment couldn't be deleted. Try again."
-      redirect_to [@topic, @post]
     end
   end
 
